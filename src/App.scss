@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+}
+
+$default: #f4f4f4;
+$success: #5cb85c;
+$warning: #f0ad4e;
+$danger: #d9534f;
+
+
+input[type=submit],
+button {
+  border: 1px solid #b9b9b9;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: .5;
+    cursor: default;
+  }
+}
+
+input[type=submit] {
+  border: 1px solid $success;
+  background: $success;
+  color: #fff;
+}
+
+
+.App {
+  margin: 1rem;
+}
+
+.description {
+  margin: 1rem 0;
+  padding: .5rem 1rem;
+  font-size: 12px;
+  background: $default;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+.result {
+  margin: 1rem 0;
+  padding: 1rem 0;
+  font-size: 12px;
+  border-top: 2px solid $default;
+
+  div {
+    margin-bottom: 1rem;
+  }
+}
+
+.place {
+  margin: 1rem 0;
+}
+
+.action-del-container {}
+
+
+.input-text-container {
+  input {
+    border: 1px solid #b9b9b9;
+    padding: 3px 9px;
+    border-radius: 3px;
+    width: 100%;
+  }
+
+  &.-sm {
+    max-width: 60px;
+  }
+
+}
+
+.input-group {
+  display: flex;
+
+  .input-text-container {
+    input {
+      border-radius: 0;
+      border-left-width: 0;
+    }
+  }
+
+  &>*:first-child {
+    input {
+      border-radius: 3px 0 0 3px;
+      border-left-width: 1px;
+    }
+  }
+  &>*:last-child {
+    border-radius: 0 3px 3px 0;
+  }
+  .action-rand-container {
+    border: 1px solid #b9b9b9;
+    border-left: 0;
+    padding:0 6px;
+    display: flex;
+    align-items: center;
+    background: #f6f6f6;
+    transition: background .3s, color .3s, border-color .3s;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $success;
+      background: $success;
+      color: #fff;
+    }
+  }
+  .action-clear-container {
+    border: 1px solid #b9b9b9;
+    border-left: 0;
+    padding:0 6px;
+    display: flex;
+    align-items: center;
+    background: #f6f6f6;
+    transition: background .3s, color .3s, border-color .3s;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $warning;
+      background: $warning;
+      color: #fff;
+    }
+  }
+  .action-del-container {
+    border: 1px solid #b9b9b9;
+    border-left: 0;
+    padding:0 6px;
+    display: flex;
+    align-items: center;
+    background: #f6f6f6;
+    transition: background .3s, color .3s, border-color .3s;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $danger;
+      background: $danger;
+      color: #fff;
+    }
+  }
+}
+
+.distance-text {}
+.distance-total {}
