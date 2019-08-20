@@ -1,14 +1,16 @@
+const serverUrl = "http://134.0.119.35:3001/path";
+
 export const getDistance = (places, cb) => {
   return (dispatch) => {
     dispatch({
       type: 'GET_DISTANCE_REQUEST'
     })
 
-    let url = "http://134.0.119.35:3001/path";
+
     let total = 0;
     let text = '';
     Promise
-      .all( fetchPromises(places, url) )
+      .all( fetchPromises(places) )
       .then((response) => {
         let tmpDistance=0;
         response.forEach((way,i )=> {
@@ -25,9 +27,7 @@ export const getDistance = (places, cb) => {
           }
           total+=way.distance;
         });
-        return response;
-      })
-      .then((response) => {
+
         cb();
         dispatch({
           type: 'GET_DISTANCE_SUCCESS',
@@ -38,6 +38,7 @@ export const getDistance = (places, cb) => {
         });
       })
       .catch((err)=>{
+        cb();
         dispatch({
           type: 'GET_DISTANCE_ERROR',
           payload: err,
@@ -66,11 +67,11 @@ export const changePlace = () => {
   }
 }
 
-function fetchPromises (places, url) {
+function fetchPromises (places) {
   let fetchs = [];
   for(let i = 0; i<places.length-1; i++) {
     fetchs.push(
-      fetch(url, {
+      fetch(serverUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
